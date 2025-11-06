@@ -1,0 +1,196 @@
+package com.utility;
+
+import java.time.Duration;
+import java.util.concurrent.TimeoutException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.baseclass.DriverManager;
+
+
+
+public class WaitUtils {
+
+	
+
+
+
+
+	    public static void waitUntilVisible(WebElement element) {
+	        WebDriverWait wait = new WebDriverWait(DriverManager.webDriver.get(), Duration.ofSeconds(20));
+	        wait.until(ExpectedConditions.visibilityOf(element));
+	    }
+
+	    public static void waitUntilClickable(WebElement element) {
+	        WebDriverWait wait = new WebDriverWait(DriverManager.webDriver.get(), Duration.ofSeconds(20));
+	        wait.until(ExpectedConditions.elementToBeClickable(element));
+	    }
+
+	    public static void safeClickJS(WebElement element) {
+	        try {
+	            waitUntilVisible(element);
+	            waitUntilClickable(element);
+	            scrollToElement(element);
+	            element.click();
+	        } catch (Exception e) {
+	            JavascriptExecutor js = (JavascriptExecutor) DriverManager.webDriver.get();
+	            js.executeScript("arguments[0].click();", element);
+	        }
+	    }
+
+	    public static void scrollToElement(WebElement element) {
+	        JavascriptExecutor js = (JavascriptExecutor) DriverManager.webDriver.get();
+	        js.executeScript("arguments[0].scrollIntoView(true);", element);
+	    }
+
+	    public static WebElement fluentWait(By locator, int timeoutSeconds, int pollingSeconds) {
+	        Wait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(DriverManager.webDriver.get())
+	                .withTimeout(Duration.ofSeconds(timeoutSeconds))
+	                .pollingEvery(Duration.ofSeconds(pollingSeconds))
+	                .ignoring(org.openqa.selenium.NoSuchElementException.class)
+	                .ignoring(org.openqa.selenium.StaleElementReferenceException.class);
+	        return wait.until(driver -> driver.findElement(locator));
+	    }
+
+	    public static void safeClicked(By locator) {
+	        try {
+	            WebDriverWait wait = new WebDriverWait(DriverManager.webDriver.get(), Duration.ofSeconds(20));
+	            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+	            scrollToElement(element);
+	            element.click();
+	        } catch (Exception e) {
+	            System.out.println("Standard click failed, trying JS click: " + e.getMessage());
+	            try {
+	                WebElement element = DriverManager.webDriver.get().findElement(locator);
+	                JavascriptExecutor js = (JavascriptExecutor) DriverManager.webDriver.get();
+	                js.executeScript("arguments[0].scrollIntoView(true);", element);
+	                js.executeScript("arguments[0].click();", element);
+	            } catch (Exception inner) {
+	                throw new RuntimeException("JS click also failed: " + inner.getMessage());
+	            }
+	        }
+	    }
+	    
+	    public static void safeClick(WebElement element) {
+	        try {
+	            waitUntilVisible(element);
+	            waitUntilClickable(element);
+	            element.click();
+	        } catch (Exception e) {
+	            JavascriptExecutor js = (JavascriptExecutor) DriverManager.webDriver.get();
+	            js.executeScript("arguments[0].click();", element);
+	        }
+	    }
+	    
+	    public static void safeSendKeys(WebElement element, String value) {
+	        try {
+	            waitUntilVisible(element);
+	            waitUntilClickable(element);
+	            element.clear(); // optional, clears existing text
+	            element.sendKeys(value);
+	        } catch (Exception e) {
+	            // fallback using JS if needed
+	            JavascriptExecutor js = (JavascriptExecutor) DriverManager.webDriver.get();
+	            js.executeScript("arguments[0].value='" + value + "';", element);
+	        }
+	    }
+	    
+	    
+	    //Actions Class
+	    
+	    public static void mouseHover(WebElement element) {
+	        try {
+	            // Wait for the element to be visible first
+	            waitUntilVisible(element);
+	            
+	            // Scroll it into view to make sure it's in the viewport
+	            scrollToElement(element);
+
+	            // Perform mouse hover action
+	            Actions actions = new Actions(DriverManager.webDriver.get());
+	            actions.moveToElement(element).pause(Duration.ofMillis(300)).perform();
+
+	            System.out.println("Mouse hover successful on element: " + element);
+
+	        } catch (Exception e) {
+	            System.out.println("Standard hover failed: " + e.getMessage());
+	            try {
+	                // Fallback to JavaScript hover (simulates mouseenter event)
+	                JavascriptExecutor js = (JavascriptExecutor) DriverManager.webDriver.get();
+	                js.executeScript(
+	                    "var event = new MouseEvent('mouseover', {bubbles: true}); arguments[0].dispatchEvent(event);",
+	                    element
+	                );
+	                System.out.println("Fallback JS hover executed.");
+	            } catch (Exception inner) {
+	                throw new RuntimeException("Both standard and JS hover failed: " + inner.getMessage());
+	            }
+	        }
+	    }
+
+	    public static WebElement waitUntilVisible(By locator) {
+	        WebDriverWait wait = new WebDriverWait(DriverManager.webDriver.get(), Duration.ofSeconds(20));
+	        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	    }
+
+
+	    
+	    public static void waitUntilVisibleOr(By locator1, By locator2) throws TimeoutException {
+	        WebDriver driver = DriverManager.webDriver.get();
+	        long endTime = System.currentTimeMillis() + 20000; // 20 seconds timeout
+
+	        while (System.currentTimeMillis() < endTime) {
+	            try {
+	                if (driver.findElement(locator1).isDisplayed() ||
+	                    driver.findElement(locator2).isDisplayed()) {
+	                    return;
+	                }
+	            } catch (Exception ignored) { }
+	            try {
+	                Thread.sleep(500);
+	            } catch (InterruptedException e) {
+	                Thread.currentThread().interrupt();
+	                break;
+	            }
+	        }
+	        throw new TimeoutException("Neither locator became visible within timeout.");
+	    }
+	    
+	    public static void jsClick(WebDriver driver, WebElement element) {
+	        try {
+	            scrollToElement(element);
+	            JavascriptExecutor js = (JavascriptExecutor) DriverManager.webDriver.get();
+	            js.executeScript("arguments[0].click();", element);
+	            System.out.println("✅ JS click performed on element: " + element);
+	        } catch (Exception e) {
+	            System.out.println("❌ JS click failed: " + e.getMessage());
+	            throw new RuntimeException("JS click failed on element: " + element, e);
+	        }
+	    }
+
+	    public static void jsClick(WebElement element) {
+	        try {
+	            JavascriptExecutor js = (JavascriptExecutor) DriverManager.webDriver.get();
+	            js.executeScript("arguments[0].click();", element);
+	            System.out.println("Clicked element via JS: " + element);
+	        } catch (Exception e) {
+	            System.out.println("❌ JS Click failed for element: " + e.getMessage());
+	        }
+	    }
+
+	    
+
+	}
+
+
+			  
+	
+
