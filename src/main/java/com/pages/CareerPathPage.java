@@ -146,5 +146,4 @@ public class CareerPathPage extends DriverManager {
 		Assert.assertTrue(isSameOrder, "❌ Recently viewed careers are not in correct order!");
 		System.out.println("✅ Recently viewed careers displayed in correct order on homepage.");
 	}
-
 }

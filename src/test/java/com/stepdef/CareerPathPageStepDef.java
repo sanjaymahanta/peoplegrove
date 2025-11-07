@@ -9,7 +9,7 @@ import io.cucumber.java.en.*;
 
 public class CareerPathPageStepDef {
 
-	CareerPathPage cpp;
+CareerPathPage cpp;
 	
 	@When("the user mouse hovers over Career in the top navbar")
 	public void the_user_mouse_hovers_over_career_in_the_top_navbar() {
@@ -30,7 +30,7 @@ public class CareerPathPageStepDef {
 
 	@When("the user scrolls down to the {string} section")
 	public void the_user_scrolls_down_to_the_section(String string) {
-		cpp.careerPath();
+	   cpp.careerPath();
 	   
 	}
 
