@@ -99,6 +99,7 @@ public class DashboardPage extends DriverManager {
 	
 	
 	
+	
 
 	public DashboardPage() {
 		PageFactory.initElements(webDriver.get(), this);
@@ -224,18 +225,18 @@ public class DashboardPage extends DriverManager {
 		WaitUtils.waitUntilVisible(profileLinks2);
 		String profileName2 = profileLinks2.getText();
 		System.out.println(profileName2);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		WaitUtils.safeClick(svgArrow);
 		WaitUtils.waitUntilVisible(profileLinks3);
 		String profileName3 = profileLinks3.getText();
 		System.out.println(profileName3);
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		WaitUtils.safeClick(svgArrow);
 		WaitUtils.waitUntilVisible(profileLinks4);
 		String profileName4 = profileLinks4.getText();
 		System.out.println(profileName4);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		WaitUtils.safeClick(svgArrow);
 		WaitUtils.waitUntilVisible(profileLinks5);
 		String profileName5 = profileLinks5.getText();
@@ -259,6 +260,18 @@ public class DashboardPage extends DriverManager {
 
 
 	}
+	
+	public boolean isInboxTabHighlighted() {
+	    WebElement inboxTab = webDriver.get().findElement(By.xpath("//button[@aria-label='Inbox']"));
+	    String textColor = inboxTab.getCssValue("color").replace(" ", "");
+	    System.out.println("Inbox tab color: " + textColor);
+
+	    String expectedBase = "144,19,254"; // purple highlight RGB
+	    return textColor.contains(expectedBase);
+	}
+
+
+
 	
 
 }
