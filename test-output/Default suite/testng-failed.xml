@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.runner.Runner">
+      <class name="com.stepdef.CareerPathPageStepDef">
         <methods>
-          <include name="tearDownClass"/>
-          <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="0"/>
+          <include name="the_career_paths_page_should_be_displayed"/>
         </methods>
-      </class> <!-- com.runner.Runner -->
+      </class> <!-- com.stepdef.CareerPathPageStepDef -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

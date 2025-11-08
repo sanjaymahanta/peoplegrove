@@ -1,10 +1,10 @@
 package com.pages;
 
-import java.time.Duration;
+
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
+
 import java.util.List;
-import java.util.Set;
+
 import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
@@ -13,10 +13,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
+
 
 import com.baseclass.DriverManager;
 import com.utility.WaitUtils;

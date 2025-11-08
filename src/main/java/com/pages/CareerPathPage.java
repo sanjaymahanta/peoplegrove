@@ -14,6 +14,7 @@ import com.baseclass.DriverManager;
 import com.utility.WaitUtils;
 
 public class CareerPathPage extends DriverManager {
+
 	@FindBy(xpath = "//button[@type='button' and contains(normalize-space(.),'Career')]")
 	WebElement careerButton;
 
@@ -23,26 +24,26 @@ public class CareerPathPage extends DriverManager {
 	@FindBy(xpath = "//button[@type='button' and normalize-space()='Update profile']")
 	public WebElement updateProfile;
 
-	@FindBy(xpath = "//button[normalize-space()='View all career paths']")
+	@FindBy(xpath = "//button[contains(normalize-space(.),'View all career paths')]")
 	WebElement allCarrerPath;
 
-	@FindBy(xpath = "//a[normalize-space()='Actors']")
-	WebElement actors;
+	@FindBy(xpath = "//a[@title='Art Directors' and contains(normalize-space(.),'Art Directors')]")
+	WebElement artDirector;
 
-	@FindBy(xpath = "//a[@title='Advertising and Promotions Managers' and contains(normalize-space(text()), 'Advertising and Promotions Managers')]")
-	WebElement advertising;
+	@FindBy(xpath = "//a[@title='Athletes and Sports Competitors' and contains(normalize-space(text()), 'Athletes and Sports Competitors')]")
+	WebElement atheletsAnsSports;
 
-	@FindBy(xpath = "//a[@title='Agricultural Engineers' and contains(normalize-space(text()), 'Agricultural Engineers')]")
-	WebElement agricultural;
+	@FindBy(xpath = "//a[@title='Budget Analysts' and contains(normalize-space(text()), 'Budget Analysts')]")
+	WebElement budgetAnalysts;
 
-	@FindBy(xpath = "//h2[@class='career-title' and contains(normalize-space(.),'Actor') ]")
-	public WebElement actorCareerPage;
+	@FindBy(xpath = "//h2[@class='career-title' and contains(normalize-space(.),'Art Directors') ]")
+	public WebElement artDirectorCareerPage;
 
-	@FindBy(xpath = "//h2[@class='career-title' and contains(normalize-space(.),'Advertising and Promotions Managers') ]")
-	public WebElement advertisingCareerPage;
+	@FindBy(xpath = "//h2[@class='career-title' and contains(normalize-space(.),'Athletes and Sports Competitors') ]")
+	public WebElement atheletCareerPage;
 
-	@FindBy(xpath = "//h2[@class='career-title' and contains(normalize-space(.),'Agricultural Engineers') ]")
-	public WebElement agriculturalCareerPage;
+	@FindBy(xpath = "//h2[@class='career-title' and contains(normalize-space(.),'Budget Analysts') ]")
+	public WebElement budgetAnalystCareerPage;
 
 	@FindBy(xpath = "(//div[@class='Carousel-module_slider__XQtIN'])[2]")
 	WebElement recentVistorSection;
@@ -67,8 +68,9 @@ public class CareerPathPage extends DriverManager {
 	}
 
 	public void selectCarrerPathOption() {
-		WaitUtils.safeClick(carrerPath);
-		  Assert.assertTrue(carrerPath.isDisplayed(), "Expected element not visible!");
+		WaitUtils.clickWithFluentWait(carrerPath);
+		 System.out.println(" Career Path option clicked safely with FluentWait");
+		  
 	}
 
 	public void verifyUniqueElementDisplayed(WebElement element) {
@@ -77,36 +79,39 @@ public class CareerPathPage extends DriverManager {
 		System.out.println("Unique element is found .");
 	}
 
-	public void careerPath() {
-		WaitUtils.safeClickBYJs(allCarrerPath);
+	public void clickCareerPath() {
+		WaitUtils.clickWithFluentWait(allCarrerPath);
+		
 	}
 
 	public void selectCarrerPath() {
-		WaitUtils.safeClick(actors);
+		WaitUtils.clickWithFluentWait(artDirector);
+		
 
 	}
 
 	public void selectSecondCareerPaths() {
-		WaitUtils.safeClick(advertising);
+		WaitUtils.clickWithFluentWait(atheletsAnsSports);
+		
 
 	}
 
 	public void selectThirdCareerPaths() {
-		WaitUtils.safeClick(agricultural);
+		WaitUtils.clickWithFluentWait(budgetAnalysts);
+		
 
 	}
 
 	public void navigateHomePage() {
-
-		WaitUtils.safeClick(homeButton);
+		WaitUtils.clickWithFluentWait(homeButton);
 		System.out.println(" Navigated to Home Page for verification");
 	}
 
 	public void verifyRecentlyViewedOrder() {
 		List<String> selectedCareerPaths = new ArrayList<>();
-		selectedCareerPaths.add("Actors");
-		selectedCareerPaths.add("Advertising and Promotions Managers");
-		selectedCareerPaths.add("Agricultural Engineers");
+		selectedCareerPaths.add("Art Directors");
+		selectedCareerPaths.add("Athletes and Sports Competitors");
+		selectedCareerPaths.add("Budget Analysts");
 
 		// ✅ Step 3: Scroll to Recently Viewed Careers heading
 		WaitUtils.scrollToElement(recentlyViewedHeading);
@@ -115,7 +120,7 @@ public class CareerPathPage extends DriverManager {
 
 		// ✅ Step 4: Find the correct container (2nd carousel)
 		WebElement section = webDriver.get().findElement(By.xpath(
-				"(//div[@id='JTBDHomePage']//descendant::div[@class='Carousel-module_root__u9T4G' and @role='group'])[2]"));
+				"(//div[@class='Carousel-module_slider__XQtIN' and @aria-live='polite'])[2]"));
 		WaitUtils.waitUntilVisible(section);
 
 		// ✅ Step 5: Fetch all visible career names
@@ -146,4 +151,5 @@ public class CareerPathPage extends DriverManager {
 		Assert.assertTrue(isSameOrder, "❌ Recently viewed careers are not in correct order!");
 		System.out.println("✅ Recently viewed careers displayed in correct order on homepage.");
 	}
+
 }

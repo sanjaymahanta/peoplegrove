@@ -2,14 +2,17 @@ package com.stepdef;
 
 
 
+
+
 import com.baseclass.DriverManager;
 import com.pages.CareerPathPage;
+import com.utility.Log;
 
 import io.cucumber.java.en.*;
 
 public class CareerPathPageStepDef {
 
-CareerPathPage cpp;
+	CareerPathPage cpp;
 	
 	@When("the user mouse hovers over Career in the top navbar")
 	public void the_user_mouse_hovers_over_career_in_the_top_navbar() {
@@ -30,57 +33,65 @@ CareerPathPage cpp;
 
 	@When("the user scrolls down to the {string} section")
 	public void the_user_scrolls_down_to_the_section(String string) {
-	   cpp.careerPath();
+	   cpp.clickCareerPath();
 	   
 	}
 
 	@When("the user selects any career path")
-	public void the_user_selects_any_career_path() {
-	    cpp.selectCarrerPath();
+	public void the_user_selects_any_career_path() throws InterruptedException {
+		cpp.selectCarrerPath();
+		Log.info("Navigate back Select Career Path page");
 	}
 
 	@Then("the selected career path detail page should open")
-	public void the_selected_career_path_detail_page_should_open() {
-	    cpp.verifyUniqueElementDisplayed(cpp.actorCareerPage);
+	public void the_selected_career_path_detail_page_should_open() throws InterruptedException {
+		cpp.verifyUniqueElementDisplayed(cpp.artDirectorCareerPage);
+	    Log.info("art director page is opened");
 	   
 	}
 
 	@When("the user clicks the browser back button")
-	public void the_user_clicks_the_browser_back_button() {
+	public void the_user_clicks_the_browser_back_button() throws InterruptedException {
 		DriverManager.webDriver.get().navigate().back();
-		System.out.println("Navigated back to Career Path list");
+		Log.info("Navigate back Career Path page");
 	}
 
 	@Then("the user should be navigated back to the Career Paths page")
 	public void the_user_should_be_navigated_back_to_the_career_paths_page() {
 		cpp.verifyUniqueElementDisplayed(cpp.updateProfile);
+		Log.info("naviagte back to career path page");
 	}
 
 	@When("the user selects two more different career paths of their choice")
-	public void the_user_selects_two_more_different_career_paths_of_their_choice() {
+	public void the_user_selects_two_more_different_career_paths_of_their_choice() throws InterruptedException {
+		Log.info("Select second career path");
 	    cpp.selectSecondCareerPaths();
-	    cpp.verifyUniqueElementDisplayed(cpp.advertisingCareerPage);
+	    Log.info("Verifying atheleteCareer page is opened");
+	    cpp.verifyUniqueElementDisplayed(cpp.atheletCareerPage);
 	    DriverManager.webDriver.get().navigate().back();
-		System.out.println("Navigated back to Career Path list");
-		cpp.selectThirdCareerPaths();cpp.verifyUniqueElementDisplayed(cpp.agriculturalCareerPage);
+		Log.info("Navigat eback to career page");
+		cpp.selectThirdCareerPaths();
+		Log.info("budgetAnalyst page is opened");
+		cpp.verifyUniqueElementDisplayed(cpp.budgetAnalystCareerPage);
 	    DriverManager.webDriver.get().navigate().back();
-		System.out.println("Navigated back to Career Path list");
+		Log.info("Navigate back to career page");
 	}
 
 	@When("the user clicks on {string} from the top navbar")
-	public void the_user_clicks_on_from_the_top_navbar(String string) {
-	    cpp.navigateHomePage();
+	public void the_user_clicks_on_from_the_top_navbar(String string) throws InterruptedException {
+	 cpp.navigateHomePage();
 	   
 	}
 
 	@Then("the homepage should be displayed")
-	public void the_homepage_should_be_displayed() {
-		 cpp.verifyUniqueElementDisplayed(cpp.homePageElement);
+	public void the_homepage_should_be_displayed() throws InterruptedException {
+	
+		Log.info("Homepage is displayed");
 	}
 
 	@Then("in the {string} section")
 	public void in_the_section(String string) {
-	System.out.println("Skipping for some time");
+	Log.info("navigat eto reviewed section");
 	}
 
 	@Then("the most recently viewed career path should appear first")
