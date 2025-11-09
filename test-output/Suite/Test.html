@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Nov 07 19:09:11 IST 2025</td>
+<td>Started on:</td><td>Sun Nov 09 00:01:02 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>68 seconds (68989 ms)</td>
+<tr><td>Total time:</td><td>127 seconds (127382 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,74 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.runner.Runner.runScenario()'><b>runScenario</b><br>Test class: com.runner.Runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify career path navigation, selection, and recently viewed careers display", "Verify user workflows under Career and Messaging modules"</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=141.0.7390.125)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
-Build info: version: &apos;4.37.0&apos;, revision: &apos;3c1da1e342&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [dd1c97643362488159e26ec2fa2efdab, isElementDisplayed {id=f.3EAE408DD9947DC6C34BCEE77BF23562.d.123D538D4599ABB9ABEF6B9701A9BF18.e.43}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\meena\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61906}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61906/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (dd1c97643362488159e26ec2fa2efdab)] -&gt; xpath: //p[normalize-space()=&apos;Career Paths&apos;]]
-Session ID: dd1c97643362488159e26ec2fa2efdab
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:282)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy27.isDisplayed(Unknown Source)
-	at com.pages.CareerPathPage.selectCarrerPathOption(CareerPathPage.java:71)
-	at com.stepdef.CareerPathPageStepDef.the_user_click_option(CareerPathPageStepDef.java:22)
-	at ✽.the user click &quot;Career Paths&quot; option(file:///C:/Users/meena/itm/dsaLearning/peoplegrove/src/test/resources/Feature/Test.feature:37)
-... Removed 5 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2139895366", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2139895366'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=141.0.7390.125)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
-Build info: version: &apos;4.37.0&apos;, revision: &apos;3c1da1e342&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [dd1c97643362488159e26ec2fa2efdab, isElementDisplayed {id=f.3EAE408DD9947DC6C34BCEE77BF23562.d.123D538D4599ABB9ABEF6B9701A9BF18.e.43}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\meena\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61906}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61906/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (dd1c97643362488159e26ec2fa2efdab)] -&gt; xpath: //p[normalize-space()=&apos;Career Paths&apos;]]
-Session ID: dd1c97643362488159e26ec2fa2efdab
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:282)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy27.isDisplayed(Unknown Source)
-	at com.pages.CareerPathPage.selectCarrerPathOption(CareerPathPage.java:71)
-	at com.stepdef.CareerPathPageStepDef.the_user_click_option(CareerPathPageStepDef.java:22)
-	at ✽.the user click &quot;Career Paths&quot; option(file:///C:/Users/meena/itm/dsaLearning/peoplegrove/src/test/resources/Feature/Test.feature:37)
-</pre></div></td>
-<td>14</td>
-<td>com.runner.Runner@6ff29830</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -146,8 +78,13 @@ Session ID: dd1c97643362488159e26ec2fa2efdab
 <tr>
 <td title='com.runner.Runner.runScenario()'><b>runScenario</b><br>Test class: com.runner.Runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify sent message appears in inbox conversation and navigation back to Jobs page", "Verify user workflows under Career and Messaging modules"</td>
 <td></td>
-<td>49</td>
-<td>com.runner.Runner@6ff29830</td></tr>
+<td>47</td>
+<td>com.runner.Runner@2453f95d</td></tr>
+<tr>
+<td title='com.runner.Runner.runScenario()'><b>runScenario</b><br>Test class: com.runner.Runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify career path navigation, selection, and recently viewed careers display", "Verify user workflows under Career and Messaging modules"</td>
+<td></td>
+<td>73</td>
+<td>com.runner.Runner@2453f95d</td></tr>
 </table><p>
 </body>
 </html>

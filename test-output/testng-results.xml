@@ -1,11 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="0" passed="0" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-08T14:29:18 IST" name="Default suite" finished-at="2025-11-08T14:29:18 IST" duration-ms="31">
+  <suite started-at="2025-11-09T00:01:02 IST" name="Suite" finished-at="2025-11-09T00:03:09 IST" duration-ms="127382">
     <groups>
+      <group name="cucumber">
+        <method signature="CustomizeTestNGCucumberRunner.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.Runner@2453f95d]" name="runScenario" class="com.baseclass.CustomizeTestNGCucumberRunner"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-11-08T14:29:18 IST" name="Default test" finished-at="2025-11-08T14:29:18 IST" duration-ms="31">
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    <test started-at="2025-11-09T00:01:02 IST" name="Test" finished-at="2025-11-09T00:03:09 IST" duration-ms="127382">
+      <class name="com.runner.Runner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.Runner@2453f95d]" started-at="2025-11-09T00:01:02 IST" name="setUpClass" finished-at="2025-11-09T00:01:04 IST" duration-ms="1584" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@63318b56]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.Runner@2453f95d]" started-at="2025-11-09T00:01:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-09T00:01:51 IST" duration-ms="47052" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify sent message appears in inbox conversation and navigation back to Jobs page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Verify user workflows under Career and Messaging modules"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.Runner@2453f95d]" started-at="2025-11-09T00:01:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-09T00:03:04 IST" duration-ms="73212" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify career path navigation, selection, and recently viewed careers display"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Verify user workflows under Career and Messaging modules"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.Runner@2453f95d]" started-at="2025-11-09T00:03:04 IST" name="tearDownClass" finished-at="2025-11-09T00:03:09 IST" duration-ms="5451" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.runner.Runner -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
