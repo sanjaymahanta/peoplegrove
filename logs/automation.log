@@ -1,5 +1,7 @@
-[2025-11-09 12:49:00] INFO  Log - Navigat eback to career page
-[2025-11-09 12:49:16] INFO  Log - budgetAnalyst page is opened
-[2025-11-09 12:49:17] INFO  Log - Navigate back to career page
-[2025-11-09 12:49:24] INFO  Log - Homepage is displayed
-[2025-11-09 12:49:24] INFO  Log - navigat eto reviewed section
+[2025-11-09 16:26:03] INFO  Log - budgetAnalyst page is opened
+[2025-11-09 16:26:09] INFO  Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@291028d7: 79 ms
+[2025-11-09 16:26:09] INFO  Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@51566ce0: 16 ms
+[2025-11-09 16:26:09] INFO  Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@5e198c40: 13 ms
+[2025-11-09 16:26:09] INFO  Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@8dcacf1: 11 ms
+[2025-11-09 16:26:09] INFO  Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1c3b221f: 10 ms
+[2025-11-09 16:26:09] INFO  Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@750c23a3: 0 ms
